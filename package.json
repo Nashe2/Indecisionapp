@@ -1,0 +1,23 @@
+{
+  "name": "indecision-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nashe2/Indecisionapp.git"
+  },
+  "author": "PaolaNashelyOsorio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nashe2/Indecisionapp/issues"
+  },
+  "homepage": "https://github.com/Nashe2/Indecisionapp#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}
