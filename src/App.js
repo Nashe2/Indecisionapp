@@ -8,7 +8,7 @@ change src/App.js
 
 //Define la variable jsx que es un parrafo, que no se exporta solo
 
-var template = (
+const template = (
 				<div> 
 					<h1>Esto es codigo JSX y no html, esto va a cambiar en el background</h1> 
 					<p>OY</p>
@@ -53,7 +53,8 @@ function CityIs(){
  	return state.ciudad != "" ? CityIs() : <h3> "Ciudad Desconocida" </h3>
  }
 
-var template2 = (
+
+const template2 = (
 				<div>
 					<h1>No carga con el template1</h1>
 					<h3>Encabezado 3</h3>
