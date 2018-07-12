@@ -30,6 +30,7 @@ var state = {
 	universidad: "ITISTMO",
 	genero: "F",
 	ciudad: "Ixtepec",
+	edad: 22,
 
 }
 
@@ -41,12 +42,15 @@ var Fecha =Date()
  	return state.universidad != "" ? state.universidad: "Desconocido"
  }
 
+
 function CityIs(){
+	//Inline estilo
 	return <h3 style ={{color: "blue"}}>{state.ciudad}</h3>
 }
 
  function getCity(){
- 	return state.ciudad != "" ? CityIs() : "Ciudad Desconocida"
+ 	//operador ternario
+ 	return state.ciudad != "" ? CityIs() : <h3> "Ciudad Desconocida" </h3>
  }
 
 var template2 = (
@@ -57,6 +61,7 @@ var template2 = (
 					<p>{getUniversity()}</p>
 					<p>{state.genero}</p>
 					{getCity()}
+					{(state.edad && state.edad >= 18) && <h3>Edad: {state.edad}</h3>}
 					<p>Hola! La fecha es: {Fecha}</p>
 				</div>
 				);

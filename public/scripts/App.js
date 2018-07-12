@@ -1,121 +1,92 @@
 "use strict";
 
-/*babel src/App.js --out-file=public/scripts/App.js --presets=env,react --watch
-change src/App.js
-*/
+document.write("hello");
 
-//live-server public
+document.write("<p></p>");
 
-//JSX se parece al html pero no lo es
+var nameVar = "Paola";
+nameVar = "Osorio";
+document.write(nameVar);
 
-//Define la variable jsx que es un parrafo, que no se exporta solo
+document.write("<p></p>");
 
-var template = React.createElement(
-	"div",
-	null,
-	React.createElement(
-		"h1",
-		null,
-		"Esto es codigo JSX y no html, esto va a cambiar en el background"
-	),
-	React.createElement(
-		"p",
-		null,
-		"OY"
-	),
-	React.createElement("input", { type: "submit", value: "Clickname" }),
-	React.createElement(
-		"ul",
-		null,
-		React.createElement(
-			"li",
-			null,
-			" Pruebalo ya"
-		),
-		React.createElement(
-			"li",
-			null,
-			" Infinidad de probalilidades"
-		),
-		React.createElement(
-			"li",
-			null,
-			" Otro articulo"
-		)
-	)
-);
+//no se puede repetir la constante pero si renombrarla
+var nameLet = "Nashely";
+nameLet = "Mari";
+document.write(nameLet);
 
-//String
-var activo = "Estudiante activo";
+document.write("<p></p>");
 
-//Js
-var state = {
-	username: "Nashe",
-	universidad: "ITISTMO",
-	genero: "F",
-	ciudad: "Ixtepec"
+//no se puede repetir la constante ni renombrarla
+var nameConst = "Coo";
+document.write(nameConst);
 
-};
+document.write("<p></p>");
 
-var Fecha = Date();
-
-function getUniversity() {
-	//concidional que asigna el que va despues del ?, por lo 
-	//consiguiente si es vacio y sino regresara desconocido
-	return state.universidad != "" ? state.universidad : "Desconocido";
+//Desde una funcion Variable........................................
+function getPetName() {
+	var petName = "Pelusa";
+	return petName;
 }
 
-function CityIs() {
-	return React.createElement(
-		"h3",
-		{ style: { color: "blue" } },
-		state.ciudad
-	);
+//Desde una funcion
+var petName = getPetName();
+document.write(petName);
+
+document.write("<p></p>");
+
+//Desde una funcion Constante....................................
+function getPetName() {
+	var petName = "Baby";
+	return petName;
 }
 
-function getCity() {
-	return state.ciudad != "" ? CityIs() : "Ciudad Desconocida";
+//Desde una funcion
+var petName2 = getPetName();
+document.write(petName2);
+
+var FullName = "Paola Nashely Osorio Guzman";
+
+if (FullName) {
+	var firstName = FullName.split(' ');
+	for (var i = 0; i < firstName.length; i++) {
+		document.write("<p>------</p>");
+		document.write(firstName[i]);
+	}
 }
 
-var template2 = React.createElement(
-	"div",
-	null,
-	React.createElement(
-		"h1",
-		null,
-		"No carga con el template1"
-	),
-	React.createElement(
-		"h3",
-		null,
-		"Encabezado 3"
-	),
-	React.createElement(
-		"p",
-		null,
-		state.username
-	),
-	React.createElement(
-		"p",
-		null,
-		getUniversity()
-	),
-	React.createElement(
-		"p",
-		null,
-		state.genero
-	),
-	getCity(),
-	React.createElement(
-		"p",
-		null,
-		"Hola! La fecha es: ",
-		Fecha
-	)
-);
+//..............................................................
+document.write("<p></p>");
 
-//mandar a buscar el div con el id=app
-var appRoot = document.getElementById("app");
+var email = "gilskis.zuzu@come.com";
 
-//objeto de ReactDOM QUE LLEVA E PARRAFO AL INDEX
-ReactDOM.render(template2, appRoot);
+function emailVerification(email) {
+	var emailArroba = email.split("@");
+
+	try {
+		var emailPunto = emailArroba[1].split(".");
+	} catch (Exeption) {
+		return false;
+	}
+	console.log(emailPunto);
+	var existeDomino = false;
+	var existeExtencion = false;
+
+	if (emailPunto[0] == "gmail" || emailPunto[0] == "hotmail" || emailPunto[0] == "outlook" || emailPunto[0] == "yahoo") {
+		return false;
+	}
+
+	var extension = emailPunto.pop();
+	if (extension == "com" || extension == "edu" || extension == "mx" || extension == "es") {
+		existeExtencion = true;
+	}
+	return existeDomino && existeExtencion && true;
+}
+
+var emailVerdadero = emailVerification(email);
+
+if (emailVerdadero == true) {
+	document.write("Si es un correo valido");
+} else {
+	document.write("No es un correo Valido");
+}
