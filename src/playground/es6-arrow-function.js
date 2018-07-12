@@ -17,5 +17,9 @@ const squareArrow =(x) =>{
  document.write("<p></p>")
 
 //si la funcion solo regresa un valor, se puede hacer en una sola línea
- const squareArrow2 = (x) => Array.from(Array(x).keys())
-  document.write(squareArrow2(50))
+ const getFirstName = (fullName) => fullName.split("")[0]
+  document.write(getFirstName("Paola Nashely Osorio Guzman"))
+
+  //......................................
+
+  
