@@ -1,70 +1,160 @@
 "use strict";
 
-//arrow function con dos entradas
-var add = function add(a, b) {
-	return a + b;
+/*babel src/App.js --out-file=public/scripts/App.js --presets=env,react --watch
+change src/App.js
+*/
+
+//live-server public
+
+//JSX se parece al html pero no lo es
+
+//Define la variable jsx que es un parrafo, que no se exporta solo
+
+var template = React.createElement(
+	"div",
+	null,
+	React.createElement(
+		"h1",
+		null,
+		"Esto es codigo JSX y no html, esto va a cambiar en el background"
+	),
+	React.createElement(
+		"p",
+		null,
+		"OY"
+	),
+	React.createElement("input", { type: "submit", value: "Clickname" }),
+	React.createElement(
+		"ul",
+		null,
+		React.createElement(
+			"li",
+			null,
+			" Pruebalo ya"
+		),
+		React.createElement(
+			"li",
+			null,
+			" Infinidad de probalilidades"
+		),
+		React.createElement(
+			"li",
+			null,
+			" Otro articulo"
+		)
+	)
+);
+
+//String
+var activo = "Estudiante activo";
+
+//Js
+var state = {
+	username: "Nashe",
+	universidad: "ITISTMO",
+	genero: "F",
+	ciudad: "Ixtepec",
+	edad: 22
+
 };
 
-document.write(add(4, 8));
+var Fecha = Date();
 
-document.write("<p></p>");
-//...............................................
-var addArrow = function addArrow(a, b) {
-	return a + b;
-};
+function getUniversity() {
+	//concidional que asigna el que va despues del ?, por lo 
+	//consiguiente si es vacio y sino regresara desconocido
+	return state.universidad != "" ? state.universidad : "Desconocido";
+}
 
-document.write(add(4, 9));
+function CityIs() {
+	//Inline estilo
+	return React.createElement(
+		"h3",
+		{ style: { color: "blue" } },
+		state.ciudad
+	);
+}
 
-document.write("<p></p>");
-//..............................................
+function getCity() {
+	//operador ternario
+	return state.ciudad != "" ? CityIs() : React.createElement(
+		"h3",
+		null,
+		" \"Ciudad Desconocida\" "
+	);
+}
 
-var user = {
-	name: 'Nashe',
-	cities: ['Chihuitan', 'Chicago', ' New york'],
-	printPlacesLived: function printPlacesLived() {
-		//var that = this
-		this.cities.forEach(function (city) {
-			document.write("<p></p>");
-			document.write(this.name + 'ha estado en' + city);
-		}.bind(this));
-	},
-	happy: true
-};
-
-user.printPlacesLived();
-//.................................................
-document.write("<p>-----------------------</p>");
-var user2 = {
-	name: 'Nashe',
-	cities: ['Chihuitan', 'Chicago', ' New york'],
-	printPlacesLived2: function printPlacesLived2() {
+//........................
+var multiJson = {
+	multiplo: 3,
+	multiplicados: [1, 2, 3, 4, 5, 6, 7, 8],
+	timesFunction: function timesFunction() {
 		var _this = this;
 
-		//var that = this
-		this.cities.forEach(function (city) {
-			document.write("<p></p>");
-			document.write(_this.name + 'ha estado en' + city);
+		return this.multiplicados.map(function (number) {
+			return React.createElement(
+				"li",
+				null,
+				number * _this.multiplo
+			);
 		});
-	},
-
-	happy: true
+	}
 };
+//........................
+var template2 = React.createElement(
+	"div",
+	null,
+	React.createElement(
+		"h1",
+		null,
+		"No carga con el template1"
+	),
+	React.createElement(
+		"ul",
+		null,
+		React.createElement(
+			"li",
+			null,
+			"Encabezado 3"
+		),
+		React.createElement(
+			"li",
+			null,
+			state.username
+		),
+		React.createElement(
+			"li",
+			null,
+			getUniversity()
+		),
+		React.createElement(
+			"li",
+			null,
+			state.genero
+		),
+		multiJson.timesFunction(),
+		React.createElement(
+			"li",
+			null,
+			state.edad && state.edad >= 18 && React.createElement(
+				"h3",
+				null,
+				"Edad: ",
+				state.edad
+			)
+		)
+	),
+	getCity(),
+	React.createElement(
+		"p",
+		null,
+		"Hola! La fecha es: ",
+		Fecha
+	)
+);
 
-user2.printPlacesLived2();
+//mandar a buscar el div con el id=app
+var appRoot = document.getElementById("app");
 
-//.................................................
-document.write("<p>-----------------------</p>");
-var user3 = {
-	name: 'Nashe',
-	cities: ['Chihuitan', 'Chicago', ' New york'],
-	printPlacesLived3: function printPlacesLived3() {
-		var cityMessages = this.cities.map(function (city) {
-			return city;
-		});
-		return cityMessages;
-	},
-
-	happy: true
-};
-
-document.write(user3.printPlacesLived3());
+//objeto de ReactDOM QUE LLEVA E PARRAFO AL INDEX
+ReactDOM.render(template2, appRoot);

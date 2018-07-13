@@ -21,7 +21,7 @@ const user={
 		//var that = this
 		this.cities.forEach(function(city){
 			document.write("<p></p>")
-			document.write(this.name + 'ha estado en'+ city)
+			document.write(this.name + ' ha estado en '+ city)
 		}.bind(this))
 	},
 	happy: true
@@ -37,7 +37,7 @@ const user2={
 		//var that = this
 		this.cities.forEach((city)=>{
 			document.write("<p></p>")
-			document.write(this.name + 'ha estado en'+ city)
+			document.write(this.name + ' ha estado en '+ city)
 		})
 	},
 	happy: true
@@ -51,10 +51,7 @@ const user3={
 	name: 'Nashe',
 	cities: ['Chihuitan', 'Chicago',' New york'],
 	printPlacesLived3(){
-		const cityMessages = this.cities.map((city)=>{
-			return city
-		})
-		return cityMessages
+		return this.cities.map((city)=> "<p></p>" + this.name+" ha vivido " + " en " + city)
 	},
 	happy: true
 }

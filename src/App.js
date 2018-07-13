@@ -53,22 +53,33 @@ function CityIs(){
  	return state.ciudad != "" ? CityIs() : <h3> "Ciudad Desconocida" </h3>
  }
 
-
+//........................
+const multiJson ={
+	multiplo: 3,
+	multiplicados: [1,2,3,4,5,6,7,8],
+	timesFunction(){
+		return this.multiplicados.map((number) => <li>{number * this.multiplo}</li>)
+	}
+}
+//........................
 const template2 = (
 				<div>
 					<h1>No carga con el template1</h1>
-					<h3>Encabezado 3</h3>
-					<p>{state.username}</p>
-					<p>{getUniversity()}</p>
-					<p>{state.genero}</p>
+					<ul>
+						<li>Encabezado 3</li>
+						<li>{state.username}</li>
+						<li>{getUniversity()}</li>
+						<li>{state.genero}</li>
+						{multiJson.timesFunction()}
+						<li>{(state.edad && state.edad >= 18) && <h3>Edad: {state.edad}</h3>}</li>
+					</ul>
 					{getCity()}
-					{(state.edad && state.edad >= 18) && <h3>Edad: {state.edad}</h3>}
 					<p>Hola! La fecha es: {Fecha}</p>
 				</div>
 				);
 
 //mandar a buscar el div con el id=app
-var appRoot= document.getElementById("app")
+const appRoot= document.getElementById("app")
 
 //objeto de ReactDOM QUE LLEVA E PARRAFO AL INDEX
 ReactDOM.render(template2, appRoot)
