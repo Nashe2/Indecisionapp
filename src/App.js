@@ -53,7 +53,7 @@ function CityIs(){
  	return state.ciudad != "" ? CityIs() : <h3> "Ciudad Desconocida" </h3>
  }
 
-//........................
+//Implementacion de un Json para multiplos........................
 const multiJson ={
 	multiplo: 3,
 	multiplicados: [1,2,3,4,5,6,7,8],
@@ -78,8 +78,44 @@ const template2 = (
 				</div>
 				);
 
+
+let contador=0
+
+const addOne= ()=>{
+	//muestraun mensaje alert("Buh!")
+	alert("Más uno")
+}
+
+const substractdOne= () =>{
+	alert("Menos uno")
+}
+
+const reset= () =>{
+	alert("Reinicia")
+}
+
+const template3 =(
+	<div style = {{background: "blue", margin: "100 0 0 100"}}>
+		<h1 style = {{color: "white", fontFamily: " 'Bitter', serif", fontWeigth: 800, fontSize: "6em"}}> Contador: {contador}</h1>
+		<button  onClick={addOne}
+				style={{height:60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue"}}
+				>Aumentar</button>
+				
+		<button  onClick={substractdOne}
+				style={{height:60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue", marginLeft: 2}}
+				>Dismunuir</button>
+
+		<button  onClick={reset}
+				style={{height:60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue", marginLeft: 2}}
+				>Reiniciar</button>
+	</div>
+	)
+
 //mandar a buscar el div con el id=app
 const appRoot= document.getElementById("app")
 
 //objeto de ReactDOM QUE LLEVA E PARRAFO AL INDEX
-ReactDOM.render(template2, appRoot)
+ReactDOM.render(template3, appRoot)

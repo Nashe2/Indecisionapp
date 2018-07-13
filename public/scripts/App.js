@@ -84,7 +84,7 @@ function getCity() {
 	);
 }
 
-//........................
+//Implementacion de un Json para multiplos........................
 var multiJson = {
 	multiplo: 3,
 	multiplicados: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -153,8 +153,58 @@ var template2 = React.createElement(
 	)
 );
 
+var contador = 0;
+
+var addOne = function addOne() {
+	//muestraun mensaje alert("Buh!")
+	alert("Más uno");
+};
+
+var substractdOne = function substractdOne() {
+	alert("Menos uno");
+};
+
+var reset = function reset() {
+	alert("Reinicia");
+};
+
+var template3 = React.createElement(
+	"div",
+	{ style: { background: "blue", margin: "100 0 0 100" } },
+	React.createElement(
+		"h1",
+		{ style: { color: "white", fontFamily: " 'Bitter', serif", fontWeigth: 800, fontSize: "6em" } },
+		" Contador: ",
+		contador
+	),
+	React.createElement(
+		"button",
+		{ onClick: addOne,
+			style: { height: 60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue" }
+		},
+		"Aumentar"
+	),
+	React.createElement(
+		"button",
+		{ onClick: substractdOne,
+			style: { height: 60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue", marginLeft: 2 }
+		},
+		"Dismunuir"
+	),
+	React.createElement(
+		"button",
+		{ onClick: reset,
+			style: { height: 60, width: 120, fontFamily: "'Open Sans', sans-serif", fontWeigth: 800, fontSize: "1.2em",
+				background: "white", border: "solid white 2px", color: "blue", marginLeft: 2 }
+		},
+		"Reiniciar"
+	)
+);
+
 //mandar a buscar el div con el id=app
 var appRoot = document.getElementById("app");
 
 //objeto de ReactDOM QUE LLEVA E PARRAFO AL INDEX
-ReactDOM.render(template2, appRoot);
+ReactDOM.render(template3, appRoot);
